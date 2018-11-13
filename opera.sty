@@ -1,0 +1,143 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{opera}[2014/07/16 Opera Package]
+
+\RequirePackage{xcolor}
+\RequirePackage{xspace}
+\RequirePackage{mathtools}
+\RequirePackage{amssymb}
+\RequirePackage{amsmath}
+\RequirePackage{mathrsfs}
+\RequirePackage{framed}
+\RequirePackage{soul}
+\RequirePackage[UKenglish]{isodate}
+\RequirePackage{textcomp}
+\RequirePackage{upquote}
+\RequirePackage{listings}
+
+\renewcommand{\figureautorefname}{Fig.}
+\renewcommand{\tableautorefname}{Table}
+\renewcommand{\chapterautorefname}{Chapter}
+\renewcommand{\sectionautorefname}{\S}
+\renewcommand{\subsectionautorefname}{\S}
+\renewcommand{\subsubsectionautorefname}{\S}
+\providecommand*{\lstlistingautorefname}{Listing}
+\newcommand*{\Appendixautorefname}{Appendix}
+
+\lstset{upquote=true}
+
+\newcommand{\notespv}[1]
+	{{\color{blue}[[{\bf Supervisor:} #1]]}}
+\newcommand{\notestd}[1]
+	{{\color{brown}[[{\bf Student:} #1]]}}
+
+%\soulregister\cite7
+%\soulregister\ref7
+%\soulregister\em7
+%\definecolor{LightBlue}{RGB}{175,238,238}
+%\sethlcolor{LightBlue}
+%\newcommand{\reviewchange}[1]
+%	{{\hl{#1}}}
+\newcommand{\reviewchange}[1]
+	{{\color{OliveGreen}{#1}}}
+\newcommand{\reviewtwochange}[1]
+	{{\color{Sepia}{#1}}}
+
+\newcommand{\whitepage}{\clearpage\null\newpage}
+
+\newcommand{\ie}{i.e.,\@\xspace}
+\newcommand{\eg}{e.g.,\@\xspace}
+\newcommand{\etal}{et al.\@\xspace}
+\newcommand{\vs}{vs.\@\xspace}
+\newcommand{\cf}{cf.\@\xspace}
+\newcommand{\fig}{Fig.~}
+\newcommand{\ps}{pub\slash sub}
+\newcommand{\etc}{etc.\@\xspace}
+\newcommand{\gras}[1]{{\bf #1}}
+\newcommand{\noindgras}[1]{\noindent{\bf #1}}
+\newcommand{\noindemph}[1]{\noindent\emph{#1}}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\definecolor{cambridgeblue}{RGB}{0, 60, 113}
+\definecolor{cambridgemauve}{RGB}{63, 42, 86}
+\definecolor{cambridgepurple}{RGB}{138, 21, 56}
+\definecolor{cambridgeorange}{RGB}{190,77,0}
+
+\lstdefinestyle{customRuby}{
+keywordstyle=\color{blue}\bf,
+otherkeywords={around,before,after},
+commentstyle=\color{mygreen},
+rulecolor=\color{black},
+stringstyle=\color{mymauve},
+tabsize=2,
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+breakatwhitespace=false,
+breaklines=true,
+captionpos=b,
+basicstyle=\footnotesize,
+}
+
+\lstdefinestyle{customC}{
+keywordstyle=\color{blue}\bf,
+otherkeywords={tag_t, size_t, pid_t, edge_t, node_t, meta_label_t, meta_str_t, byte_t},
+commentstyle=\color{mygreen},
+rulecolor=\color{black},
+stringstyle=\color{mymauve},
+tabsize=2,
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+breakatwhitespace=false,
+breaklines=true,
+captionpos=b,
+basicstyle=\footnotesize,
+}
+
+\lstdefinestyle{customBash}{
+keywordstyle=\color{blue}\bf,
+commentstyle=\color{mygreen},
+rulecolor=\color{black},
+stringstyle=\color{mymauve},
+tabsize=2,
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+breakatwhitespace=false,
+breaklines=true,
+captionpos=b,
+basicstyle=\footnotesize,
+}
+
+\lstdefinestyle{customCypher}{
+keywordstyle=\color{blue}\bf,
+otherkeywords={MATCH, WITH, WHERE, ALL, IN, RETURN,AS,length,relationships},
+commentstyle=\color{mygreen},
+rulecolor=\color{black},
+stringstyle=\color{mymauve},
+tabsize=2,
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+breakatwhitespace=false,
+breaklines=true,
+captionpos=b,
+basicstyle=\small,
+}
+
+\DeclareOption{nocomment}{
+	\renewcommand{\notedme}[1]{}
+	\renewcommand{\notetp}[1]{}
+	\renewcommand{\notejmb}[1]{}
+	\renewcommand{\notems}[1]{}
+	\renewcommand{\notemh}[1]{}
+}
+\DeclareOption{noreview}{
+	\renewcommand{\reviewchange}[1]{#1}
+	\renewcommand{\reviewtwochange}[1]{#1}
+	\renewcommand{\change}[1]{#1}
+}
+\ProcessOptions\relax
